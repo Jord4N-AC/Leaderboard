@@ -1,0 +1,23 @@
+{
+  "name": "leaderboard",
+  "version": "1.0.0",
+  "description": "A website that displays scores submitted by players (users). All data is preserved thanks to an external API service.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jord4N-AC/Leaderboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jord4N-AC/Leaderboard/issues"
+  },
+  "homepage": "https://github.com/Jord4N-AC/Leaderboard#readme",
+  "devDependencies": {
+    "hint": "^7.0.1"
+  }
+}
