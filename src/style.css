@@ -65,3 +65,31 @@ h1 {
 .name-wrapper {
   display: flex;
 }
+
+/* Add new Score */
+#add-score-section {
+  flex: 0 1 250px;
+  margin: 20px 6%;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+#add-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#add-form input[type*="text"] {
+  box-sizing: border-box;
+  width: 100%;
+  
+  padding: 6px;
+  margin: 8px 0;
+}
+
+#submit-btn {
+  align-self: flex-end;
+  margin: 8px 0;
+}
