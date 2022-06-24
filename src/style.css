@@ -1,7 +1,67 @@
 body {
-  background-color: rgb(174, 254, 245);
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
-.hello {
-  color: red;
+/* Common Styles */
+h2 {
+  text-align: center;
+}
+
+#leaderboard-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 5%;
+}
+
+h1 {
+  font-size: 42px;
+  text-shadow: -7px 5px 12px rgba(42, 143, 243, 0.81);
+  word-break: break-all;
+}
+
+/* List of Scores */
+#scores-section {
+  flex: 0 1 450px;
+  margin: 20px;
+}
+
+#score-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+#refresh-btn {  
+  margin: 0 0 20px auto;
+}
+
+#score-list-container {
+  border-radius: 3px;
+  border: 3px solid black;
+}
+
+.user-info {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 8px;
+}
+
+.user-info p {
+  margin: 0;
+}
+
+.user-info:nth-child(odd) {
+  background-color: #fff;
+}
+
+.user-info:nth-child(even) {
+  background-color: rgb(218, 212, 212);
+}
+
+.name-wrapper {
+  display: flex;
 }
