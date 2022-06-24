@@ -32,7 +32,7 @@ h1 {
   flex-wrap: wrap;
 }
 
-#refresh-btn {  
+#refresh-btn {
   margin: 0 0 20px auto;
 }
 
@@ -70,7 +70,6 @@ h1 {
 #add-score-section {
   flex: 0 1 250px;
   margin: 20px 6%;
-
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -84,7 +83,6 @@ h1 {
 #add-form input[type*="text"] {
   box-sizing: border-box;
   width: 100%;
-  
   padding: 6px;
   margin: 8px 0;
 }
