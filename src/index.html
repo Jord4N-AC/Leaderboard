@@ -9,23 +9,95 @@
 <body>
     <main>
         <h1>Leaderboard</h1>
-        <!-- List of Scores -->
-        <div id="scores-section">
-            <div id="score-header">
-                <h2 id="score-title">Recent Scores</h2>
-                <button id="refresh-btn">Refresh</button>
+        <div id="leaderboard-content">
+            <!-- List of Scores -->
+            <div id="scores-section">
+                <div id="score-header">
+                    <h2 id="score-title">Recent Scores</h2>
+                    <button id="refresh-btn">Refresh</button>
+                </div>
+                <div id="score-list-container">
+                    <div class="user-info">
+                        <div class="name-wrapper">                            
+                            <p class="user-name">Name</p>
+                            <span class="divider-colon">:&nbsp;</span>
+                        </div>
+                        <p class="user-score">100</p>
+                    </div>
+                    <div class="user-info">
+                        <div class="name-wrapper">
+                            <p class="user-name">Name</p>
+                            <span class="divider-colon">:&nbsp;</span>
+                        </div>
+                        <p class="user-score">50</p>       
+                    </div>
+                    <div class="user-info">
+                        <div class="name-wrapper">                            
+                            <p class="user-name">Name</p>
+                            <span class="divider-colon">:&nbsp;</span>
+                        </div>
+                        <p class="user-score">5000</p>       
+                    </div>
+                    <div class="user-info">
+                        <div class="name-wrapper">                            
+                            <p class="user-name">Name</p>
+                            <span class="divider-colon">:&nbsp;</span>
+                        </div>
+                        <p class="user-score">12</p>       
+                    </div>
+                    <div class="user-info">
+                        <div class="name-wrapper">                            
+                            <p class="user-name">Name</p>
+                            <span class="divider-colon">:&nbsp;</span>
+                        </div>
+                        <p class="user-score">1902</p>       
+                    </div>
+                    <div class="user-info">
+                        <div class="name-wrapper">                            
+                            <p class="user-name">Name</p>
+                            <span class="divider-colon">:&nbsp;</span>
+                        </div>
+                        <p class="user-score">111</p>       
+                    </div>
+                    <div class="user-info">
+                        <div class="name-wrapper">                            
+                            <p class="user-name">Name</p>
+                            <span class="divider-colon">:&nbsp;</span>
+                        </div>
+                        <p class="user-score">111</p>       
+                    </div>
+                    <div class="user-info">
+                        <div class="name-wrapper">                            
+                            <p class="user-name">Name</p>
+                            <span class="divider-colon">:&nbsp;</span>
+                        </div>
+                        <p class="user-score">111</p>       
+                    </div>
+                    <div class="user-info">
+                        <div class="name-wrapper">                            
+                            <p class="user-name">Name</p>
+                            <span class="divider-colon">:&nbsp;</span>
+                        </div>
+                        <p class="user-score">111</p>       
+                    </div>
+                    <div class="user-info">
+                        <div class="name-wrapper">                            
+                            <p class="user-name">Name</p>
+                            <span class="divider-colon">:&nbsp;</span>
+                        </div>
+                        <p class="user-score">111</p>       
+                    </div>
+                </div>
             </div>
-            <div id="score-list">
+            <!-- Add new Score -->
+            <div id="add-score-section">
+                <h2 id="add-title">Add your score</h2>
+                <form id="add-form">
+                    <input type="text" id="name-input" name="name" placeholder="Your name">
+                    <input type="text" id="score-input" name="score" placeholder="Your score">
+                    <input type="submit" id="submit-btn" value="Submit">
+                </form>
             </div>
-        </div>
-        <!-- Add new Score -->
-        <div id="add-score-section">
-            <h2 id="add-title">Add your score</h2>
-            <form id="add-form">
-                <input type="text" id="name-input" name="name" placeholder="Your name">
-                <input type="text" id="score-input" name="score" placeholder="Your score">
-                <input type="submit" id="submit-btn" value="Submit">
-            </form>
         </div>
     </main>
 </body>
