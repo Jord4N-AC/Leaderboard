@@ -16,7 +16,6 @@ const getScores = async (url = URL) => {
     const scores = await fetch(url);
     const scoresJson = await scores.json();
     
-    console.log(scoresJson);
     return scoresJson;
 };
 
@@ -29,7 +28,7 @@ const renderScores = async () => {
         const scoreNum = score.score;
         const scoreHTML = `
             <div class="user-info">
-                <div class="name-wrapper">                            
+                <div class="name-wrapper">
                     <p class="user-name">${scoreName}</p>
                     <span class="divider-colon">:&nbsp;</span>
                 </div>
@@ -37,9 +36,7 @@ const renderScores = async () => {
             </div>`;
 
         scoresListEl.insertAdjacentHTML('beforeend', scoreHTML);
-        console.log('scoresArray.forEach() excutes');
     });
-    console.log('renderScores() excutes');
 };
 
 const saveScore = (url = URL) => {
@@ -52,16 +49,16 @@ const saveScore = (url = URL) => {
         body: JSON.stringify(newScore),
         headers: { 'Content-type': 'application/json; charset=UTF-8', },
     });
-    console.log('saveScore() executed');
 };
 
-const trimInput = (input) => { input.value = input.value.trim().replace(/\s+/g, ' ') }
-const trimAllInputs = (inputsGroup) => { inputsGroup.forEach(input => trimInput(input)) }
-const clearInput = (input) => { input.value = '' }
+const trimInput = (input) => { input.value = input.value.trim().replace(/\s+/g, ' '); };
+const trimAllInputs = (inputsGroup) => { inputsGroup.forEach((input) => trimInput(input)); };
+const clearInput = (input) => { input.value = ''; };
+const clearAllInputs = (inputsGroup) => inputsGroup.forEach((input) => clearInput(input));
 
 
 // Event Listeners
-refreshButton.addEventListener('click', renderScores)
+refreshButton.addEventListener('click', renderScores);
 
 
 formEl.addEventListener('submit', (e) => {
@@ -69,18 +66,17 @@ formEl.addEventListener('submit', (e) => {
     trimAllInputs(formInputs);
     
     saveScore();
-    formInputs.forEach((input) => { clearInput(input); });
-    console.log('formEl.(submit) executed');
+    clearAllInputs(formInputs);
 });
 
-formInputs.forEach(input => {
+formInputs.forEach((input) => {
     input.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
-            trimInput(e.target)
+            trimInput(e.target);
         }
-    })
-})
+    });
+});
 
-submitBtn.addEventListener('click', () => trimAllInputs(formInputs))
+submitBtn.addEventListener('click', () => trimAllInputs(formInputs));
 
 renderScores();
