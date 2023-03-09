@@ -43,20 +43,17 @@ const renderScores = async () => {
 };
 
 const saveScore = (url = URL) => {
-    const nameValue = nameInput.value
-    const scoreValue = nameInput.value
+    const nameValue = nameInput.value;
+    const scoreValue = scoreInput.value;
+    const newScore = { user: nameValue, score: scoreValue, };
 
-    fetch(URL, {
+    fetch(url, {
         method: 'POST',
-        body: JSON.stringify(
-            {
-                "user": nameValue,
-                "score": scoreValue
-            }
-        ),
+        body: JSON.stringify(newScore),
         headers: { 'Content-type': 'application/json; charset=UTF-8', },
-    })
-}
+    });
+    console.log('saveScore() executed');
+};
 
 const trimInput = (input) => { input.value = input.value.trim().replace(/\s+/g, ' ') }
 const trimAllInputs = (inputsGroup) => { inputsGroup.forEach(input => trimInput(input)) }
@@ -68,12 +65,13 @@ refreshButton.addEventListener('click', renderScores)
 
 
 formEl.addEventListener('submit', (e) => {
-    e.preventDefault()
-    trimAllInputs(formInputs)
+    e.preventDefault();
+    trimAllInputs(formInputs);
     
-    // saveScore()
-    formInputs.forEach(input => { clearInput(input) })
-})
+    saveScore();
+    formInputs.forEach((input) => { clearInput(input); });
+    console.log('formEl.(submit) executed');
+});
 
 formInputs.forEach(input => {
     input.addEventListener('keydown', (e) => {
