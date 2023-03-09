@@ -6,6 +6,8 @@ const scoresListEl = document.getElementById('score-list-container');
 const nameInput = document.getElementById('name-input');
 const scoreInput = document.getElementById('score-input');
 const formEl = document.getElementById('add-form');
+const formInputs = document.querySelectorAll('input[required]');
+const submitBtn = document.getElementById('submit-btn');
 
 const gameId = '0w1DIhTP3YxPLlnbxiIx'
 const URL = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores/`;
@@ -54,8 +56,29 @@ const saveScore = (url = URL) => {
     })
 }
 
+const trimInput = (input) => { input.value = input.value.trim().replace(/\s+/g, ' ') }
+const trimAllInputs = (inputsGroup) => { inputsGroup.forEach(input => trimInput(input)) }
+const clearInput = (input) => { input.value = '' }
+
+
+// Event Listeners
 refreshButton.addEventListener('click', renderScores)
+
+
 formEl.addEventListener('submit', (e) => {
     e.preventDefault()
-    saveScore()
+    trimAllInputs(formInputs)
+    
+    // saveScore()
+    formInputs.forEach(input => { clearInput(input) })
 })
+
+formInputs.forEach(input => {
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            trimInput(e.target)
+        }
+    })
+})
+
+submitBtn.addEventListener('click', () => trimAllInputs(formInputs))
