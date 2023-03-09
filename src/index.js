@@ -9,36 +9,38 @@ const formEl = document.getElementById('add-form');
 const formInputs = document.querySelectorAll('input[required]');
 const submitBtn = document.getElementById('submit-btn');
 
-const gameId = '0w1DIhTP3YxPLlnbxiIx'
+const gameId = '0w1DIhTP3YxPLlnbxiIx';
 const URL = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores/`;
 
 const getScores = async (url = URL) => {
-    const scores = await fetch(url)
-    const scoresJson = await scores.json()
+    const scores = await fetch(url);
+    const scoresJson = await scores.json();
     
-    console.log(json)
-    return scoresJson
-}
+    console.log(scoresJson);
+    return scoresJson;
+};
 
-const renderScores = () => {
-    const scoresObj = getScores()
-    const scoresArray = scoresObj.result
+const renderScores = async () => {
+    const scoresObj = await getScores();
+    const scoresArray = scoresObj.result;
 
-    scoresArray.forEach(score => {
-        let scoreName = score.user
-        let scoreNum = score.score
-        let scoreHTML = `
+    scoresArray.forEach((score) => {
+        const scoreName = score.user;
+        const scoreNum = score.score;
+        const scoreHTML = `
             <div class="user-info">
                 <div class="name-wrapper">                            
                     <p class="user-name">${scoreName}</p>
                     <span class="divider-colon">:&nbsp;</span>
                 </div>
                 <p class="user-score">${scoreNum}</p>
-            </div>`
+            </div>`;
 
-        scoresListEl.insertAdjacentHTML('beforeend', scoreHTML)
+        scoresListEl.insertAdjacentHTML('beforeend', scoreHTML);
+        console.log('scoresArray.forEach() excutes');
     });
-}
+    console.log('renderScores() excutes');
+};
 
 const saveScore = (url = URL) => {
     const nameValue = nameInput.value
@@ -82,3 +84,5 @@ formInputs.forEach(input => {
 })
 
 submitBtn.addEventListener('click', () => trimAllInputs(formInputs))
+
+renderScores();
