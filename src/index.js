@@ -1,70 +1,17 @@
 import './index.html';
 import './style.css';
 
-const refreshButton = document.getElementById('refresh-btn');
-const scoresListEl = document.getElementById('score-list-container');
-const nameInput = document.getElementById('name-input');
-const scoreInput = document.getElementById('score-input');
-const formEl = document.getElementById('add-form');
-const formInputs = document.querySelectorAll('input[required]');
-const submitBtn = document.getElementById('submit-btn');
-
-const gameId = '0w1DIhTP3YxPLlnbxiIx';
-const URL = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores/`;
-
-const getScores = async (url = URL) => {
-    const scores = await fetch(url);
-    const scoresJson = await scores.json();
-    
-    return scoresJson;
-};
-
-const renderScores = async () => {
-    const scoresObj = await getScores();
-    const scoresArray = scoresObj.result;
-
-    scoresArray.forEach((score) => {
-        const scoreName = score.user;
-        const scoreNum = score.score;
-        const scoreHTML = `
-            <div class="user-info">
-                <div class="name-wrapper">
-                    <p class="user-name">${scoreName}</p>
-                    <span class="divider-colon">:&nbsp;</span>
-                </div>
-                <p class="user-score">${scoreNum}</p>
-            </div>`;
-
-        scoresListEl.insertAdjacentHTML('beforeend', scoreHTML);
-    });
-};
-
-const saveScore = (url = URL) => {
-    const nameValue = nameInput.value;
-    const scoreValue = scoreInput.value;
-    const newScore = { user: nameValue, score: scoreValue, };
-
-    fetch(url, {
-        method: 'POST',
-        body: JSON.stringify(newScore),
-        headers: { 'Content-type': 'application/json; charset=UTF-8', },
-    });
-};
-
-const trimInput = (input) => { input.value = input.value.trim().replace(/\s+/g, ' '); };
-const trimAllInputs = (inputsGroup) => { inputsGroup.forEach((input) => trimInput(input)); };
-const clearInput = (input) => { input.value = ''; };
-const clearAllInputs = (inputsGroup) => inputsGroup.forEach((input) => clearInput(input));
-
+import { refreshButton, formEl, formInputs, submitBtn } from './modules/variables.js';
+import renderScores from './modules/render-data.js';
+import saveScore from './modules/save-data.js';
+import { trimInput, trimAllInputs, clearAllInputs } from './modules/trim-clear-inputs.js';
 
 // Event Listeners
 refreshButton.addEventListener('click', renderScores);
 
-
 formEl.addEventListener('submit', (e) => {
     e.preventDefault();
     trimAllInputs(formInputs);
-    
     saveScore();
     clearAllInputs(formInputs);
 });
