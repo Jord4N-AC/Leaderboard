@@ -55,13 +55,14 @@
 ### Key Features <a name="key-features"></a>
 
 - **[Use Gitflow.]**
-- **[Use ES6 syntax.]**
-- **[Use ES6 modules to write modular JavaScript.]**
+- **[Use ES6 syntax, ES6 modules.]**
 - **[Use webpack to bundle JavaScript.]**
 - **[Built with webpack, served by webpack dev server.]**
-- **[Use callbacks, promises, async - await.]**
-- **[Use medium-fidelity wireframe to create UI.]**
+- **[Use async - await.]**
+- **[Use API documentation.]**
 - **[Send and receive data from an API.]**
+- **[Use and understand JSON.]**
+- **[Use medium-fidelity wireframe to create UI.]**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -126,9 +127,8 @@ Clone this repository to your desired folder:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **[Send and receive data from API.]**
-- **[Improve funcionability]**
 - **[Improve styles]**
+- **[Improve funcionability]**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

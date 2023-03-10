@@ -1,3 +1,6 @@
 # .gitignore
 node_modules/
 dist
+
+# Future Features
+src/modules/future-features.js
