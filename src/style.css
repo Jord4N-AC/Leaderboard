@@ -39,6 +39,8 @@ h1 {
 #score-list-container {
   border-radius: 3px;
   border: 3px solid black;
+  max-height: 400px;
+  overflow-x: auto;
 }
 
 .user-info {
