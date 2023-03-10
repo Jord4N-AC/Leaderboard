@@ -2,7 +2,7 @@ import getScores from './get-data.js';
 import { scoresListEl, URL } from './variables.js';
 
 const renderScore = ({ user, score }) => {
-    const scoreHTML = `
+  const scoreHTML = `
         <div class="user-info">
             <div class="name-wrapper">
                 <p class="user-name">${user}</p>
@@ -11,19 +11,19 @@ const renderScore = ({ user, score }) => {
             <p class="user-score">${score}</p>
         </div>`;
 
-    scoresListEl.insertAdjacentHTML('beforeend', scoreHTML);
-}
+  scoresListEl.insertAdjacentHTML('beforeend', scoreHTML);
+};
 
 const renderAllScores = (arrayData) => {
-    arrayData.forEach((score) => renderScore(score));
+  arrayData.forEach((score) => renderScore(score));
 };
 
 const getAndRenderAllScores = async () => {
-    const scoresObj = await getScores(URL);
-    const scoresArray = scoresObj.result;
-    
-    scoresListEl.innerHTML = '';
-    renderAllScores(scoresArray);
+  const scoresObj = await getScores(URL);
+  const scoresArray = scoresObj.result;
+
+  scoresListEl.innerHTML = '';
+  renderAllScores(scoresArray);
 };
 
 export default getAndRenderAllScores;
